@@ -1,10 +1,67 @@
+from enum import Enum
+
+class Drug(Enum):
+    D_PENICILLAMINE = "d-penicillamine"
+    PLACEBO = "placebo"
+    NOT_APPLICABLE = "na"
+
+class AgeGroup(Enum):
+    TEEN_YEARS = "ty"
+    YOUNG_ADULT = "ya"
+    MIDDLE_AGED = "ma"
+    OLD_AGED = "oa"
+
+class Sex(Enum):
+    MALE = "m"
+    FEMALE = "f"
+
+class YesNo(Enum):
+    YES = "y"
+    NO = "n"
+    NOT_APPLICABLE = "na"
+
+class Edema(Enum):
+    NO_EDEMA = "n"
+    WITH_EDEMA_NO_DIURETICS = "s"
+    EDEMA_WITH_DIURETICS = "y"
+
+class NormalAbnormal(Enum):
+    NORMAL = "normal"
+    ABNORMAL = "abnormal"
+    NOT_APPLICABLE = "na"
+
+class Cholesterol(Enum):
+    NORMAL = "normal"
+    BORDERLINE_HIGH = "borderline high"
+    HIGH = "high"
+    NOT_APPLICABLE = "na"
+
+class Level(Enum):
+    LOW = "low"
+    NORMAL = "normal"
+    HIGH = "high"
+    NOT_APPLICABLE = "na"
+
+class Tryglicerides(Enum):
+    MILD = "mild"
+    MODERATE = "moderate"
+    SEVERE = "severe"
+    NOT_APPLICABLE = "na"
+
+class HistologicStage(Enum):
+    STAGE_1 = "stage 1"
+    STAGE_2 = "stage 2"
+    STAGE_3 = "stage 3"
+    NOT_APPLICABLE = "na"
+
+
 class Question:
     def __init__(self, text, options):
         self.text = text
         self.options = options
 
     def display_question(self):
-        formatted_options = "\n".join(f"{index + 1}. {option}" for index, option in enumerate(self.options))
+        formatted_options = "\n".join(f"{index + 1}. {option.name.replace('_', ' ').title()}" for index, option in enumerate(self.options))
         return f"\n{self.text}\nOptions:\n{formatted_options}"
 
 
@@ -54,71 +111,38 @@ class Quiz:
                 break
 
     def get_user_chosen_options_raw(self):
-        # return options in raw format, maybe display this with the prediction result as summary of chosen options
-        return self._chosen_options
+        return [option.value for option in self._chosen_options]
     
-    def convert_to_model_options(self, reference_options):
-        converted_options = []
-        for i, chosen_option in enumerate(self._chosen_options):
-            current_question = self._questions[i]
-            try:
-                option_index = current_question.options.index(chosen_option)
-                converted_options.append(reference_options[i][option_index])
-            except ValueError:
-                converted_options.append(None) 
-        return converted_options
+    def convert_to_model_options(self):
+        return [option.name for option in self._chosen_options]
 
 
-# Maganda siguro na mabanggit sa questions yung pinagbasihan ng Low, Normal, etc
 questions_data = [
-    Question("Drug used by the patient:", ["d-penicillamine", "placebo", "Not Applicable"]),
-    Question("Age group of the patient:", ["Young Adult", "Middle Aged", "Old Aged"]),
-    Question("Sex of the patient:", ["Male", "Female"]),
-    Question("Does the patient have Ascites?", ["Yes", "No", "Not Applicable"]),
-    Question("Does the patient have Hepatomegaly?", ["Yes", "No", "Not Applicable"]),
-    Question("Does the patient have Spiders?", ["Yes", "No", "Not Applicable"]),
-    Question("Does the patient have Edema?", ["No Edema and no diuretic therapy for Edema", "With Edema without diuretics or Edema resolved with diuretics", "Edema despite diuretic theraphy"]),
-    Question("Bilirubin level of the patient:", ["Normal", "Abnormal"]),
-    Question("Cholesterol level of the patient:", ["Normal", "Borderline High", "High", "Not Applicable"]),
-    Question("Albumin level of the patient:", ["Low", "Normal", "High", "Not Applicable"]),
-    Question("Copper level of the patient's urine:", ["Low", "Normal", "High", "Not Applicable"]),
-    Question("Alkaline Phosphatase level of the patient:", ["Low", "Normal", "High", "Not Applicable"]),
-    Question("SGOT (Serum glutamic oxaloacetic transaminase) level of the patient's urine:", ["Low", "Normal", "High", "Not Applicable"]),
-    Question("Tryglicerides level of the patient:", ["Mild", "Moderate", "Severe", "Not Applicable"]),
-    Question("Platelets level of the patient:", ["Low", "Normal", "High", "Not Applicable"]),
-    Question("Prothrombin time level of the patient:", ["Low", "Normal", "High", "Not Applicable"]),
-    Question("Histologic stage of disease of the patient:", ["Stage 1", "Stage 2", "Stage 3", "Not Applicable"]),
-]
-
-
-options_for_prediction = [
-    ["d-penicillamine", "placebo", "na"],
-    ["ya", "ma", "oa"],
-    ["m", "f"],
-    ["y", "n", "na"],
-    ["y", "n", "na"],
-    ["y", "n", "na"],
-    ["n", "s", "y"],
-    ["normal", "abnormal"],
-    ["normal", "borderline high", "high", "normal"],
-    ["low", "normal", "high", "na"],
-    ["low", "normal", "high", "na"],
-    ["low", "normal", "high", "na"],
-    ["low", "normal", "high", "na"],
-    ["mild", "moderate", "severe", "na"],
-    ["low", "normal", "high", "na"],
-    ["low", "normal", "high", "na"],
-    ["stage 1", "stage 2", "stage 3", "na"]
+    Question("Drug used by the patient:", list(Drug)),
+    Question("Age group of the patient:\nTeenager - Greater than or equal to 12 years but less than or equal to 18 years\nYoung Adult - Greater than or equal to 19 years but less than or equal to 40 years\nMiddle Aged - Greater than or equal to 41 years but less than or equal to 65 years\nOld Aged - Greater than 65 years", list(AgeGroup)),
+    Question("Sex of the patient:", list(Sex)),
+    Question("Does the patient have Ascites?", list(YesNo)),
+    Question("Does the patient have Hepatomegaly?", list(YesNo)),
+    Question("Does the patient have Spiders?", list(YesNo)),
+    Question("Does the patient have Edema?", list(Edema)),
+    Question("Bilirubin level of the patient:\nNormal - Less than 0.3 mg/dl\nAbnormal - Greater than or equal to 0.3 mg/dl", list(NormalAbnormal)),
+    Question("Cholesterol level of the patient:\nNormal -  Less than 200 mg/dl\nAbnormal - Greater than 240 mg/dl\nBorderline - In between those values", list(Cholesterol)),
+    Question("Albumin level of the patient:\nLow - Less than 3.4 gm/dl\nHigh - Greater than 5.4 gm/dl\nNormal: In between those values", list(Level)),
+    Question("Copper level of the patient's urine:\nLow - Less than 20 ug/day\nHigh - Greater than 50 ug/day\nNormal - In between those values", list(Level)),
+    Question("Alkaline Phosphatase level of the patient:\nLow - Less than 44 U/liter\nnHigh - Greater than 147 U/liter\nNormal - In between those values", list(Level)),
+    Question("SGOT (Serum glutamic oxaloacetic transaminase) level of the patient's urine:\nLow - Less than 8000 U/ml\nnHigh - Greater than 45000 U/ml\nNormal - In between those values", list(Level)),
+    Question("Tryglicerides level of the patient:\nMild - Less than 200 mg/dl\nSevere - Greater than 500 mg/dl\nModerate - In Between those values", list(Tryglicerides)),
+    Question("Platelets level of the patient:\nLow - Less than 150 ml/1000\nHigh - Greater than 450 ml/1000\nNormal: In between those values", list(Level)),
+    Question("Prothrombin time level of the patient:\nNormal - Greater than or equal to 11 s but Less than or equal to 13.5 s\nAbnormal - Outside the range of those values", list(NormalAbnormal)),
+    Question("Histologic stage of disease of the patient:", list(HistologicStage)),
 ]
 
 quiz = Quiz(questions_data)
 
 quiz.start_quiz()
 
-#print lang muna, connect nalang sa views kapag meron ng UI
 print("Raw chosen options:")
 print(quiz.get_user_chosen_options_raw())
 print("")
 print("Model based chosen options:")
-print(quiz.convert_to_model_options(options_for_prediction))
-
+print(quiz.convert_to_model_options())
