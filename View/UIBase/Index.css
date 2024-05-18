@@ -28,3 +28,81 @@ body {
     --bs-bg-opacity: 1;
     background-color: #CAE7E4 !important;
 }
+
+/* Nav Bar */
+.cps-logo {
+    font-size: 36px;
+    font-family: Arial;
+    font-weight: bolder;
+    color: #1C7378;
+    padding-right: 1%;
+}
+
+.cps-logo:hover {
+    color: #249096;
+}
+
+.nav-list-content {
+    width: max-content;
+    font-size: 12px;
+    position: relative;
+    cursor: pointer;
+    font-family: Arial;
+    font-weight: bolder;
+}
+
+.nav-list-content:hover {
+    text-decoration: underline;
+}
+
+/* Home page */
+.title-text {
+    font-size: 96px;
+    font-family: Arial;
+    font-weight:bolder;
+    color: #1C7378;
+    padding-top: 15%;
+}
+
+.button-start {
+    font-size: 36px;
+    font-family: Arial;
+    font-weight: bolder;
+    width:fit-content;
+    background-color: #FFC9B3;
+    color: #fff;
+}
+
+.button-start:hover {
+    background-color: #ffa585;
+    color:white
+}
+
+/* Animation */
+@keyframes slideInLeft {
+    from{
+        transform: translateX(-100%);
+    }
+
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from{
+        transform: translateX(100%);
+    }
+
+    to{
+        transform: translateX(0);
+    }
+}
+
+.text-animate{
+    animation: slideInLeft 2s ease-in-out;
+}
+
+.button-animate{
+    animation: slideInRight 2s ease-in-out;
+}
