@@ -1,0 +1,30 @@
+html,
+body {
+    margin:0;
+    height: 100;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: 1em;
+    /* Height of footer */
+    min-height: 100%;
+}
+
+.header {
+    background-color: #cff;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    background-color: #000;
+}
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: #CAE7E4 !important;
+}
