@@ -100,9 +100,9 @@ body {
 }
 
 .text-animate{
-    animation: slideInLeft 2s ease-in-out;
+    animation: slideInLeft 1s ease-in-out;
 }
 
 .button-animate{
-    animation: slideInRight 2s ease-in-out;
+    animation: slideInRight 1s ease-in-out;
 }
