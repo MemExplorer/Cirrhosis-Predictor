@@ -81,28 +81,32 @@ body {
 /* Animation */
 @keyframes slideInLeft {
     from{
-        transform: translateX(-100%);
+        transform: translateX(-30%);
+        opacity: 0;
     }
 
     to{
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
 @keyframes slideInRight {
     from{
-        transform: translateX(100%);
+        transform: translateX(30%);
+        opacity: 0;
     }
 
     to{
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
 .text-animate{
-    animation: slideInLeft 1s ease-in-out;
+    animation: slideInLeft 0.75s ease-in-out;
 }
 
 .button-animate{
-    animation: slideInRight 1s ease-in-out;
+    animation: slideInRight 0.75s ease-in-out;
 }
