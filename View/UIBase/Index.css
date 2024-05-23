@@ -1,3 +1,15 @@
+
+/*
+
+Color Pallette
+#e2fcd6 - light yellow
+#14967f - dark aqua
+#095d7e - blue
+#ccecee - light blue
+#f1f9ff - White?
+*/
+
+
 html,
 body {
     margin: 0;
@@ -24,9 +36,10 @@ body {
     background-color: #000;
 }
 
+/* Do not touch */
 .bg-body-tertiary {
     --bs-bg-opacity: 1;
-    background-color: #CAE7E4 !important;
+    background-color: #095d7e !important;
 }
 
 /* Nav Bar */
@@ -34,25 +47,23 @@ body {
     font-size: 36px;
     font-family: Arial;
     font-weight: bolder;
-    color: #1C7378;
+    color: #e2fcd6;
     padding-right: 1%;
-}
-
-.cps-logo:hover {
-    color: #249096;
+    text-decoration: none;
 }
 
 .nav-list-content {
     width: max-content;
-    font-size: 12px;
+    font-size: 20px;
     position: relative;
     cursor: pointer;
     font-family: Arial;
     font-weight: bolder;
+    color: #f1f9ff !important;
 }
 
 .nav-list-content:hover {
-    text-decoration: underline;
+    color: #bfc5ca !important;
 }
 
 /* Home page */
