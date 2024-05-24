@@ -1,7 +1,7 @@
 html,
 body {
-    margin:0;
-    height: 100;
+    margin: 0;
+    height: 100%;
 }
 
 .wrapper {
@@ -27,4 +27,58 @@ body {
 .bg-body-tertiary {
     --bs-bg-opacity: 1;
     background-color: #CAE7E4 !important;
+}
+
+/* Nav Bar */
+.cps-logo {
+    font-size: 36px;
+    font-family: Arial;
+    font-weight: bolder;
+    color: #1C7378;
+    padding-right: 1%;
+}
+
+.cps-logo:hover {
+    color: #249096;
+}
+
+.nav-list-content {
+    width: max-content;
+    font-size: 12px;
+    position: relative;
+    cursor: pointer;
+    font-family: Arial;
+    font-weight: bolder;
+}
+
+.nav-list-content:hover {
+    text-decoration: underline;
+}
+
+/* Home page */
+.title-text {
+    font-size: 36px;
+    font-family: Arial;
+    font-weight:bolder;
+    color: #1C7378;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.button-question {
+    font-size: 19px;
+    font-family: Arial;
+    width:fit-content;
+    border-radius: 50px;
+    background-color: #F2F2F2;
+    color:#000;
+}
+
+
+.question-box {
+    border: 10px;
+    margin: 0px;
+    padding: 40px;
+    background-color: #CAE7E4;
+    border-radius: 50px;
 }
