@@ -62,7 +62,6 @@ body {
     font-weight:bolder;
     color: #1C7378;
     padding-top: 5%;
-    padding-bottom: 5%;
 }
 
 .button-question {
@@ -73,7 +72,35 @@ body {
     color:#000;
 }
 
+.custom-color-cyan{
+  background-color: #14967f;
+}
 
+.progress-background{
+  background-color: #e1dfdf;
+}
+
+.btn-next{
+  background-color: #14967f;
+  width: auto;
+  border-radius: 20px;
+}
+.btn-next:hover{
+  background-color: #45c8b0;
+}
+
+
+.btn-back{
+  background-color: #14967f;
+  width: auto;
+  height: 50px;
+  border-radius: 100%;
+
+}
+
+.btn-back:hover{
+  background-color: #45c8b0;
+}
 .question-box {
     border: 10px;
     margin: 0px;

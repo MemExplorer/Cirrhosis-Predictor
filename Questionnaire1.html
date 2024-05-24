@@ -5,6 +5,7 @@
     <link href="View/UIBase/Dependencies/css/bootstrap.min.css" rel="stylesheet">
     <script src="View/UIBase/Dependencies/js/bootstrap.bundle.min.js"></script>
     <link href="View/UIBase/Questionnaire1.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d7d0e3dd38.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -35,19 +36,17 @@
             </nav>
         </div>
         <!-- Website Content -->
-        <div class="container-fluid" style="overflow-x: hidden;">
-
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col d-flex justify-content-center">
-                        <h1 class="title-text">Question 1/18</h1>
-                    </div>
-                <div class="col">
-                    <div class="progress2 progress-moved">
-                        <div class="progress-bar2">
-                        </div>
-                      </div>
+        <div class="container-fluid py-0" style="overflow-x: hidden; padding: 80px;">
+            <div class="row">
+                <div class="col-3">
+                    <h1 class="title-text">Question 1/18</h1>
                 </div>
+                <div class="col-9 d-grid">
+                    <div class="progress my-auto progress-background">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated custom-color-cyan" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" style="width: 5.5%"></div>
+                    </div>
+                </div>
+            </div>
 
             <div class="question-box">
                 <p>
@@ -55,15 +54,25 @@
                 </p>
                 <div class="container-question">
                     <div class=class="row row-cols-2">
-                        <div class="col d-grid gap-3 d-flex justify-content-center">
-                            <button class="btn button-question col-6 mx-auto" type="button">Question1</button>
-                            <button class="btn button-question col-6 mx-auto" type="button">Question2</button>
+                        <div class="col d-grid d-flex justify-content-center gap-3">
+                            <button class="btn button-question col-6 mx-auto mb-3" type="button">Question1</button>
+                            <button class="btn button-question col-6 mx-auto mb-3" type="button">Question2</button>
                         </div>
-                        <div class="col d-grid gap-3 d-flex justify-content-center">
-                            <button class="btn button-question col-6 mx-auto" type="button">Question3</button>
+                        <div class="col d-grid d-flex justify-content-center gap-3">
+                            <button class="btn button-question col-6 mx-auto " type="button">Question3</button>
                             <button class="btn button-question col-6 mx-auto" type="button">Question4</button>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <button class="btn btn-back btn-lg text-white fw-bolder" type="button"><i class="fa-solid fa-arrow-left"></i></button>
+                    
+                </div>
+                <div class="col-6 text-end">
+                    <button class="btn btn-next btn-lg text-white fw-bolder" type="button">NEXT</button>
                 </div>
             </div>
         </div>
