@@ -1,0 +1,372 @@
+[
+    {
+        "id": "drug",
+        "question_text": "Drug used by the patient:",
+        "desc": "",
+        "options": [
+            [
+                "d-penicillamine",
+                "D-Penicillamine"
+            ],
+            [
+                "placebo",
+                "Placebo"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "age",
+        "question_text": "Age group of the patient:",
+        "desc": "Teenager - Greater than or equal to 12 years but less than or equal to 18 years\nYoung Adult - Greater than or equal to 19 years but less than or equal to 40 years\nMiddle Aged - Greater than or equal to 41 years but less than or equal to 65 years\nOld Aged - Greater than 65 years",
+        "options": [
+            [
+                "ty",
+                "Teen Years"
+            ],
+            [
+                "ya",
+                "Young Adults"
+            ],
+            [
+                "ma",
+                "Middle Age"
+            ],
+            [
+                "oa",
+                "Older Adulthood"
+            ]
+        ]
+    },
+    {
+        "id": "sex",
+        "question_text": "Sex of the patient:",
+        "desc": "",
+        "options": [
+            [
+                "f",
+                "Female"
+            ],
+            [
+                "m",
+                "Male"
+            ]
+        ]
+    },
+    {
+        "id": "ascites",
+        "question_text": "Does the patient have Ascites?",
+        "desc": "",
+        "options": [
+            [
+                "y",
+                "Yes"
+            ],
+            [
+                "n",
+                "No"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "hepatomegaly",
+        "question_text": "Does the patient have Hepatomegaly?",
+        "desc": "",
+        "options": [
+            [
+                "y",
+                "Yes"
+            ],
+            [
+                "n",
+                "No"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "spiders",
+        "question_text": "Does the patient have Spiders?",
+        "desc": "",
+        "options": [
+            [
+                "y",
+                "Yes"
+            ],
+            [
+                "n",
+                "No"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "edema",
+        "question_text": "Does the patient have Edema?",
+        "desc": "",
+        "options": [
+            [
+                "y",
+                "Edema despite diuretic theraphy"
+            ],
+            [
+                "n",
+                "No Edema and no diuretic therapy for Edema"
+            ],
+            [
+                "s",
+                "With Edema without diuretics or Edema resolved with diuretics"
+            ]
+        ]
+    },
+    {
+        "id": "bilirubin",
+        "question_text": "Bilirubin level of the patient:",
+        "desc": "Normal - Less than 0.3 mg/dl\nAbnormal - Greater than or equal to 0.3 mg/dl",
+        "options": [
+            [
+                "normal",
+                "Normal"
+            ],
+            [
+                "abnormal",
+                "Abnormal"
+            ]
+        ]
+    },
+    {
+        "id": "cholesterol",
+        "question_text": "Cholesterol level of the patient:",
+        "desc": "Normal -  Less than 200 mg/dl\nAbnormal - Greater than 240 mg/dl\nBorderline - In between those values",
+        "options": [
+            [
+                "normal",
+                "Normal"
+            ],
+            [
+                "high",
+                "High"
+            ],
+            [
+                "borderline high",
+                "Borderline High"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "albumin",
+        "question_text": "Albumin level of the patient:",
+        "desc": "Low - Less than 3.4 gm/dl\nHigh - Greater than 5.4 gm/dl\nNormal: In between those values",
+        "options": [
+            [
+                "low",
+                "Low"
+            ],
+            [
+                "normal",
+                "Normal"
+            ],
+            [
+                "high",
+                "High"
+            ]
+        ]
+    },
+    {
+        "id": "copper",
+        "question_text": "Copper level of the patient's urine:",
+        "desc": "Low - Less than 20 ug/day\nHigh - Greater than 50 ug/day\nNormal - In between those values",
+        "options": [
+            [
+                "low",
+                "Low"
+            ],
+            [
+                "normal",
+                "Normal"
+            ],
+            [
+                "high",
+                "High"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "alk_phos",
+        "question_text": "Alkaline Phosphatase level of the patient:",
+        "desc": "Low - Less than 44 U/liter\nnHigh - Greater than 147 U/liter\nNormal - In between those values",
+        "options": [
+            [
+                "low",
+                "Low"
+            ],
+            [
+                "normal",
+                "Normal"
+            ],
+            [
+                "high",
+                "High"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "sgot",
+        "question_text": "SGOT (Serum glutamic oxaloacetic transaminase) level of the patient's urine:",
+        "desc": "Low - Less than 8000 U/ml\nnHigh - Greater than 45000 U/ml\nNormal - In between those values",
+        "options": [
+            [
+                "low",
+                "Low"
+            ],
+            [
+                "normal",
+                "Normal"
+            ],
+            [
+                "high",
+                "High"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "tryglicerides",
+        "question_text": "Tryglicerides level of the patient:",
+        "desc": "Mild - Less than 200 mg/dl\nSevere - Greater than 500 mg/dl\nModerate - In Between those values",
+        "options": [
+            [
+                "mild",
+                "Mild"
+            ],
+            [
+                "moderate",
+                "Moderate"
+            ],
+            [
+                "severe",
+                "Severe"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "platelets",
+        "question_text": "Platelets level of the patient:",
+        "desc": "Low - Less than 150 ml/1000\nHigh - Greater than 450 ml/1000\nNormal: In between those values",
+        "options": [
+            [
+                "low",
+                "Low"
+            ],
+            [
+                "normal",
+                "Normal"
+            ],
+            [
+                "high",
+                "High"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "prothrombin",
+        "question_text": "Prothrombin time level of the patient:",
+        "desc": "Normal - Greater than or equal to 11 s but Less than or equal to 13.5 s\nAbnormal - Outside the range of those values",
+        "options": [
+            [
+                "normal",
+                "Normal"
+            ],
+            [
+                "abnormal",
+                "Abnormal"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "stage",
+        "question_text": "Histologic stage of disease of the patient:",
+        "desc": "",
+        "options": [
+            [
+                "stage 1",
+                "Stage 1"
+            ],
+            [
+                "stage 2",
+                "Stage 2"
+            ],
+            [
+                "stage 3",
+                "Stage 3"
+            ],
+            [
+                "stage 4",
+                "Stage 4"
+            ],
+            [
+                "na",
+                "Not Available"
+            ]
+        ]
+    },
+    {
+        "id": "result",
+        "question_text": "",
+        "desc": "",
+        "options": [
+            [
+                "c",
+                "Censored"
+            ],
+            [
+                "cl",
+                "Censored due to liver Transplant"
+            ],
+            [
+                "d",
+                "Death"
+            ]
+        ]
+    }
+]
