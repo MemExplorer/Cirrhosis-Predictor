@@ -81,7 +81,7 @@ class Quiz:
                 break
 
 
-quiz = Quiz(r".\questions.json")
+quiz = Quiz(r".\Resources\raw\questions.json")
 
 quiz.start_quiz()
 
