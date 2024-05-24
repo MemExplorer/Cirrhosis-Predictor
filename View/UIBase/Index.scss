@@ -1,3 +1,18 @@
+@use "sass:math";
+
+// Color Pallette
+$Snow-Flurry: #e2fcd6; // light yellow
+$Teal: #14967f; // dark aqua
+$Venice-Blue: #095d7e; // blue
+$Pale-Blue-Lily: #ccecee; // light blue
+$Zircon: #f1f9ff; // White?
+$Title-Color: #1C7378;
+
+// mixins
+@mixin hover-darken($color, $important: false) {
+    color: invert($color, 20%) if($important, !important, null);
+}
+
 html,
 body {
     margin: 0;
@@ -24,9 +39,10 @@ body {
     background-color: #000;
 }
 
+/* Do not touch */
 .bg-body-tertiary {
     --bs-bg-opacity: 1;
-    background-color: #CAE7E4 !important;
+    background-color: $Teal !important;
 }
 
 /* Nav Bar */
@@ -34,33 +50,31 @@ body {
     font-size: 36px;
     font-family: Arial;
     font-weight: bolder;
-    color: #1C7378;
+    color: $Snow-Flurry;
     padding-right: 1%;
-}
-
-.cps-logo:hover {
-    color: #249096;
+    text-decoration: none;
 }
 
 .nav-list-content {
     width: max-content;
-    font-size: 12px;
+    font-size: 20px;
     position: relative;
     cursor: pointer;
     font-family: Arial;
     font-weight: bolder;
-}
+    color: $Zircon !important;
 
-.nav-list-content:hover {
-    text-decoration: underline;
+    :hover {
+        @include hover-darken($Zircon, true)
+    }
 }
 
 /* Home page */
 .title-text {
     font-size: 96px;
     font-family: Arial;
-    font-weight:bolder;
-    color: #1C7378;
+    font-weight: bolder;
+    color: $Title-Color;
     padding-top: 15%;
 }
 
@@ -68,41 +82,45 @@ body {
     font-size: 36px;
     font-family: Arial;
     font-weight: bolder;
-    width:fit-content;
+    width: fit-content;
     background-color: #FFC9B3;
     color: #fff;
-}
 
-.button-start:hover {
-    background-color: #ffa585;
-    color:white
+    :hover {
+        background-color: #ffa585;
+        color: white
+    }
 }
 
 /* Animation */
 @keyframes slideInLeft {
-    from{
-        transform: translateX(-100%);
+    from {
+        transform: translateX(-30%);
+        opacity: 0;
     }
 
-    to{
+    to {
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
 @keyframes slideInRight {
-    from{
-        transform: translateX(100%);
+    from {
+        transform: translateX(30%);
+        opacity: 0;
     }
 
-    to{
+    to {
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
-.text-animate{
-    animation: slideInLeft 2s ease-in-out;
+.text-animate {
+    animation: slideInLeft 0.75s ease-in-out;
 }
 
-.button-animate{
-    animation: slideInRight 2s ease-in-out;
+.button-animate {
+    animation: slideInRight 0.75s ease-in-out;
 }
