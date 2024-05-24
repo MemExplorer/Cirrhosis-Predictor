@@ -1,5 +1,6 @@
 from Model.NaiveBayes.CSVReader import CSVReader
 from Model.NaiveBayes.DataClassifier import NominalClassifier
+import pickle
 
 
 class NaiveBayesClassifier:
@@ -155,3 +156,12 @@ class NaiveBayesClassifier:
                 return True
 
         return False
+
+    def export_model(self, model_path="model.pickle"):
+        with open(model_path, "wb") as f:
+            pickle.dump(self, f)
+
+    # static function
+    def load_from_model(model_path="model.pickle"):
+        with open(model_path, "rb") as f:
+            return pickle.load(f)
