@@ -1,9 +1,9 @@
 import json
-from typing import List, Tuple
+from typing import Dict, List, Tuple
 
 
 class Question:
-    def __init__(self, id: int, question_text: str, options: List[Tuple[str, str]], desc: str = ""):
+    def __init__(self, id: str, question_text: str, options: List[Tuple[str, str]], desc: str = ""):
         """
         Initialize a question.
 
@@ -46,8 +46,8 @@ class Quiz:
         """
         self._questions: List[Question] = self._load_questions(json_path)
         self._current_question_index: int = 0
-        self._chosen_options: List[Tuple[str, str]] = []
-
+        self._chosen_options: Dict[str, str] = {}
+        
     def _load_questions(self, json_path: str) -> List[Question]:
         """
         Load questions from a JSON file.
@@ -61,7 +61,8 @@ class Quiz:
         with open(json_path, 'r') as file:
             loaded_json = json.load(file)
         
-        return [Question(**question) for question in loaded_json]
+        
+        return [Question(**question) for question in loaded_json if question.get("id") != "result"]
 
     def get_current_question(self) -> Question:
         """
@@ -130,7 +131,7 @@ class Quiz:
         current_question = self.get_current_question()
 
         if 0 <= option_index < len(current_question.options):
-            self._chosen_options.append(current_question.options[option_index])
+            self._chosen_options[current_question.id] = current_question.options[option_index][0]
             return True
         else:
             print("Invalid option. Please choose a valid option letter.")
@@ -140,8 +141,9 @@ class Quiz:
         """
         Displays the options chosen by the user.
         """
-        print("Raw chosen options:")
+        print("Converted chosen options:")
         print(self._chosen_options)
+    
 
 
 if __name__ == "__main__":
