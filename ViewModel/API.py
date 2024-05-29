@@ -37,8 +37,11 @@ def handle_result(form):
     decoded_response = base64.b64decode(data.replace("-", "+").replace("_", "/"))
     deserialized_response = json.loads(decoded_response)
     
-    pred_code = model.predict(deserialized_response)
-    pred_full_result = {"result": quizInstance._prediction_mapping[pred_code]}
+    pred_tuple = model.predict(deserialized_response)
+    pred_full_result = {
+        "result": quizInstance._prediction_mapping[pred_tuple[0]],
+        "percentage": pred_tuple[1]
+    }
     encoded_response = json.dumps(craft_request(pred_full_result))
     print(encoded_response)
 

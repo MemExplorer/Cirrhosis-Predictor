@@ -90,7 +90,7 @@ class NaiveBayesClassifier:
         h_index = proportional_probability_result.index(highest_percentage)
 
         # return prediction
-        return self.__unique_values[h_index]
+        return [self.__unique_values[h_index], round(highest_percentage * 100, 2)]
 
     def __check_frequency_data(self):
         # check if we have frequency data
