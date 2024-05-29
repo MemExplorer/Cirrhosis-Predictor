@@ -13,7 +13,7 @@
         <div class="header">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="cps-logo ps-2" href="#">CPS</a>
+                    <a class="cps-logo ps-2" href="#" onclick="showSlide(0)">CPS</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -21,13 +21,13 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active nav-list-content mx-2" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active nav-list-content mx-2" aria-current="page" href="#" onclick="showSlide(0)">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-list-content mx-2" href="#">Performance</a>
+                                <a class="nav-link nav-list-content mx-2" href="#" onclick="showSlide(1)">Performance</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-list-content mx-2" href="#">About</a>
+                                <a class="nav-link nav-list-content mx-2" href="#" onclick="showSlide(2)">About</a>
                             </li>
                         </ul>
                     </div>
@@ -35,13 +35,65 @@
             </nav>
         </div>
         <!-- Website Content -->
-        <div class="container-fluid" style="overflow-x: hidden;">
-            <p class="text-center text-animate title-text">Cirrhosis Patient Survival Prediction</p>
-            <div class="text-center button-animate">
-                <button class="btn btn-lg button-start" type="button">START TEST</button>
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active" id="slide1">
+                <!--Home Content-->
+                <div class="container-fluid" style="overflow-x: hidden;">
+                    <p class="text-center text-animate title-text">Cirrhosis Patient Survival Prediction</p>
+                    <div class="text-center button-animate">
+                        <button class="btn btn-lg button-start" type="button">START TEST</button>
+                    </div>
+                </div>                
+              </div>
+              <div class="carousel-item" id="slide2">
+                <!--Prediction Content-->
+                <div class="performance-container">
+                    <div class="performance-box text-animate-1">
+                        <h1>Performance</h1>
+                        <table cellspacing="0" cellpadding="0">
+                            <tr style="width: fit-content; height: min-content;">
+                                <td><img style="width: 100%;" src="Resources\raw\img\performance_1.png"></td>
+                                <td>&nbsp&nbsp&nbsp</td>
+                                <td><img style="width: 100%;" src="Resources\raw\img\performance_2.png"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item" id="slide3">
+                <!--About Content-->
+                <div class="about-container">
+                    <div class="about-box text-animate">
+                        <h1>About Us</h1>
+                        <p class="text-justify">Cirrhosis Patient Survival (CPS) prediction is a field that uses medical data analysis to estimate the likelihood of a patient with cirrhosis surviving for a certain amount of time. It's important to note that these are predictions, not guarantees.
+                        <br><br>
+                        Our Mission: We are dedicated to empowering patients with cirrhosis and their caregivers by providing a tool to predict patient survival rates. Through advanced medical data analysis, we aim to bring clarity and information to the often-uncertain path of living with cirrhosis.
+                        <br><br>
+                        What We Do: Our cirrhosis survival prediction tool leverages complex medical data to estimate a patient's likelihood of survival over a specific timeframe with the use of the Naive Bayes model.
+                        <br><br>
+                        Important Disclaimer: It's important to remember that our tool is a prediction, not a guarantee. Our mission is to provide information, not replace the critical role of a physician in making treatment decisions. We highly recommend consulting with a doctor to discuss your specific situation and receive personalized care.
+                        </p>  
+                    </div>                    
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+        
     </div>
+    <script>
+        function showSlide(slideIndex) {
+            // Remove 'active' class from all carousel items
+            var carouselItems = document.querySelectorAll('.carousel-item');
+            carouselItems.forEach(function(item) {
+                item.classList.remove('active');
+            });
+            
+            // Add 'active' class to the selected carousel item
+            var selectedSlide = document.getElementById('slide' + (slideIndex + 1));
+            selectedSlide.classList.add('active');
+        }
+    </script>
 </body>
 
 <footer class="footer text-center text-lg-start" style="background: #7adaba;">
