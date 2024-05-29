@@ -26,7 +26,9 @@ def handle_fetch(form):
     global quizInstance
     page_num = int(form.getvalue("index"))
     response = quizInstance.get_question_from_index(page_num)
-    encoded_response = json.dumps(craft_request(response.__dict__))
+    response_copy = response.__dict__
+    response_copy["quiz_length"] = quizInstance.get_quiz_length()
+    encoded_response = json.dumps(craft_request(response_copy))
     print(encoded_response)
 
 # sample usage: API.py?type=result&data=[base64 json]
