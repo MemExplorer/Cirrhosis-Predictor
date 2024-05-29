@@ -134,6 +134,13 @@ body {
     background-color: #ef476f;
     animation: progressAnimation 6s;
   }
+
+  .question-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-between;
+  }
   
   @keyframes progressAnimation {
     0% {
@@ -145,10 +152,6 @@ body {
       background-color: #ef476f;
     }
   }
+
+
   
-  $green: #355070;
-  $turquoise: #6d597a;
-  $blue: #b56576;
-  $light-blue: #e56b6f;
-  $purple: #eaac8b;
-  $red: #ff2d55;

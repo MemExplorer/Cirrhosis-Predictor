@@ -5,6 +5,7 @@
     <link href="View/UIBase/Dependencies/css/bootstrap.min.css" rel="stylesheet">
     <script src="View/UIBase/Dependencies/js/bootstrap.bundle.min.js"></script>
     <link href="View/UIBase/Questionnaire1.css" rel="stylesheet">
+    <link href="View/UIBase/Index.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d7d0e3dd38.js" crossorigin="anonymous"></script>
 </head>
 
@@ -40,7 +41,7 @@
         <div class="container-fluid py-0" style="overflow-x: hidden; padding: 80px;">
 
             <!-- Progress Bar -->
-            <div class="row">
+            <div class="row" id="progressDiv">
 
                 <!-- Number of Questions -->
                 <div class="col-3">
@@ -50,28 +51,37 @@
                 <!-- Bar -->
                 <div class="col-9 d-grid">
                     <div class="progress my-auto progress-background">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated custom-color-cyan" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" style="width: 5.5%"></div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated custom-color-cyan" id="progress-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" style="width: 5.5%"></div>
                     </div>
                 </div>
             </div>
 
             <!-- Question Box -->
             <div class="question-box">
-
-                <!-- Question & Choices -->
                 <div id="quiz">
-                    <div id="question"></div>
-                    <div id="choices"></div>
+                    <div id="question" class="question-styles"></div>
+                    <div id="choices" class="text-center"></div>
                 </div>
+                
+                <!-- Question & Choices -->
+                <div class="" id="resultDiv" >
+                    <h1 class="prediction-color-header">Prediction Result</h1>
+                    <div>
+                        <div class="ui-widgets">
+                            <div class="ui-values">85%</div>
+                            <div class="ui-labels">Java</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
 
             <!-- Next and Back Button -->
             <div class="row mt-3">
                 <div class="col-6">
                     <button id="backButton" class="btn btn-back btn-lg text-white fw-bolder" type="button" onclick="previousQuestion()"><i class="fa-solid fa-arrow-left"></i></button> 
-                </div>
-                <div class="col-6 text-end">
-                    <button id="nextButton" class="btn btn-next btn-lg text-white fw-bolder" type="button" onclick="nextQuestion()">NEXT</button>
                 </div>
             </div>
         </div>
