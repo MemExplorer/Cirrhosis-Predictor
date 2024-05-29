@@ -30,7 +30,7 @@ class Question:
             display_text += f"{self.desc}\n"
         display_text += "\n"
 
-        for i, (option_id, option_text) in enumerate(self.options):
+        for i, (_, option_text) in enumerate(self.options):
             display_text += f"{chr(65 + i)}. {option_text}\n"
 
         return display_text
@@ -62,9 +62,18 @@ class Quiz:
             loaded_json = json.load(file)
         
         result_item = [Question(**question) for question in loaded_json if question.get("id") == "result"][0]
-        self._prediction_mapping = dict(result_item.options)
+        self._prediction_mapping: Dict[str, str] = dict(result_item.options)
         
         return [Question(**question) for question in loaded_json if question.get("id") != "result"]
+    
+    def get_quiz_length(self):
+        return len(self._questions)
+    
+    def get_question_from_index(self, page):
+        if page >= 0 and page < len(self._questions):
+            return self._questions[page]
+        
+        return None
 
     def get_current_question(self) -> Question:
         """
