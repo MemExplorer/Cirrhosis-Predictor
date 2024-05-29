@@ -81,7 +81,7 @@ function selectAnswer(qId, choice, qLen) {
       let jsonResp = JSON.parse(resp);
       if (jsonResp.success) {
         let prediction = jsonResp.data;
-        percentageResultLbl.textContent = prediction.percentage + "%";
+        UpdateProgressBarAnimate("progbar1", prediction.percentage);
         labelResultLbl.textContent = prediction.result;
       }
     });
@@ -132,3 +132,5 @@ function showSlide(slideIndex) {
   var selectedSlide = document.getElementById('slide' + (slideIndex + 1));
   selectedSlide.classList.add('active');
 }
+
+

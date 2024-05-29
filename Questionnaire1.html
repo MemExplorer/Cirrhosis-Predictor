@@ -7,6 +7,10 @@
     <link href="View/Styles/Questionnaire1.css" rel="stylesheet">
     <link href="View/Styles/Index.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d7d0e3dd38.js" crossorigin="anonymous"></script>
+    <script src="View/Scripts/DynamicScript.js"></script>
+    <script src="View/Scripts/ProgressBar.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="View/Styles/ProgressBar.scss" rel="stylesheet">
 </head>
 
 <body>
@@ -61,9 +65,17 @@
                 <div class="" id="resultDiv" >
                     <h1 class="prediction-color-header">Prediction Result</h1>
                     <div>
-                        <div class="ui-widgets">
-                            <div class="ui-values" id="percentageResult">85%</div>
-                            <div class="ui-labels" id="labelResult">Java</div>
+                        <div class="progress mx-auto" id="progbar1">
+                            <span class="progress-left">
+                                <span class="progress-bar border-primary" style="border-color: #1C7378 !important;"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar border-primary" style="border-color: #1C7378 !important;"></span>
+                            </span>
+                            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                <div class="h2 font-weight-bold">0<sup class="small">%</sup></div>
+                                <div class="h2 font-weight-bold" id="labelResult">Status</div>
+                            </div>
                         </div>
                     </div>
                 </div>
