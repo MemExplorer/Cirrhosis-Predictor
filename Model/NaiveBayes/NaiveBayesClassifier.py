@@ -126,7 +126,10 @@ class NaiveBayesClassifier:
         k_value = len(col_list)
         for data_key in col_list:
             input_key = input_dict[data_key]
-            current_iter_data = self.__data_frequency[data_key][input_key]
+            current_iter_data = [0] * len(self.__unique_values)
+            if input_key in self.__data_frequency[data_key]:
+                current_iter_data = self.__data_frequency[data_key][input_key]
+
             denominator *= compute_op(
                 sum(current_iter_data), entry_count, self.__alpha, k_value
             )
@@ -135,7 +138,9 @@ class NaiveBayesClassifier:
         numerator = 1
         for data_key in col_list:
             input_key = input_dict[data_key]
-            current_iter_data = self.__data_frequency[data_key][input_key]
+            current_iter_data = [0] * len(self.__unique_values)
+            if input_key in self.__data_frequency[data_key]:
+                current_iter_data = self.__data_frequency[data_key][input_key]
             numerator *= compute_op(
                 current_iter_data[item_index], occurence_count, self.__alpha, k_value
             )
@@ -148,7 +153,10 @@ class NaiveBayesClassifier:
         col_list = list(self.__data_frequency)
         for data_key in col_list:
             input_key = input_dict[data_key]
-            current_iter_data = self.__data_frequency[data_key][input_key]
+            current_iter_data = [0] * len(self.__unique_values)
+            if input_key in self.__data_frequency[data_key]:
+                current_iter_data = self.__data_frequency[data_key][input_key]
+
             has_zero = any(
                 i == 0 for i in current_iter_data
             )  # check if any of the values are 0

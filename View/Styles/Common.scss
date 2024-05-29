@@ -1,0 +1,12 @@
+// Color Pallette
+$Snow-Flurry: #e2fcd6; // light yellow
+$Teal: #14967f; // dark aqua
+$Venice-Blue: #095d7e; // blue
+$Pale-Blue-Lily: #ccecee; // light blue
+$Zircon: #f1f9ff; // White?
+$Title-Color: #1C7378;
+
+// mixins
+@mixin hover-darken($color, $important: false) {
+    color: invert($color, 20%) if($important, !important, null);
+}
