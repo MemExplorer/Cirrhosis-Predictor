@@ -61,6 +61,8 @@ class Quiz:
         with open(json_path, 'r') as file:
             loaded_json = json.load(file)
         
+        result_item = [Question(**question) for question in loaded_json if question.get("id") == "result"][0]
+        self._prediction_mapping = dict(result_item.options)
         
         return [Question(**question) for question in loaded_json if question.get("id") != "result"]
 
@@ -143,9 +145,3 @@ class Quiz:
         """
         print("Converted chosen options:")
         print(self._chosen_options)
-    
-
-
-if __name__ == "__main__":
-    quiz = Quiz(r".\Resources\raw\questions.json")
-    quiz.start_quiz()
