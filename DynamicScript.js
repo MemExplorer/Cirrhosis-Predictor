@@ -39,7 +39,7 @@ function showQuestion() {
       totalQuestionsElement.textContent = "Question " + (currentQuestionIndex + 1) + "/" + questionResp.quiz_length;
       questionElement.textContent = questionResp.question_text;
       if (questionResp.desc) {
-        questionElement.textContent += "\n" + questionResp.desc;
+        questionElement.innerHTML += "<br><p>" + questionResp.desc.replaceAll("\n","<br>") + "</p>";
       }
 
       // Add choices
@@ -76,7 +76,7 @@ function selectAnswer(qId, choice, qLen) {
     // quiz end
     let payload = JSON.stringify(userAnswers);
     console.log(payload);
-    let encodedPayload = btoa(payload).replace("+", "-").replace("/", "_");
+    let encodedPayload = btoa(payload).replaceAll("+", "-").replaceAll("/", "_");
     httpGetAsync("http://localhost/ViewModel/API.py?type=result&response_data=" + encodedPayload, (resp) => {
       let jsonResp = JSON.parse(resp);
       if (jsonResp.success) {
