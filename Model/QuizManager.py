@@ -1,89 +1,156 @@
 import json
+from typing import Dict, List, Tuple
 
 
 class Question:
-    def __init__(self, id, question_text, options, desc=""):
+    def __init__(self, id: str, question_text: str, options: List[Tuple[str, str]], desc: str = ""):
+        """
+        Initialize a question.
+
+        Args:
+            id: The question ID
+            question_text: The question text content
+            options: List of options as tuples (option_id, option_text)
+            desc: Optional description for the question.
+        """
         self.id = id
         self.question_text = question_text
         self.desc = desc
         self.options = options
 
-    def display_question(self):
-        disp_txt = self.question_text + "\n"
-        if len(self.desc) > 0:
-            disp_txt += self.desc + "\n"
+    def display_question(self) -> str:
+        """
+        Returns the formatted string of the question and its options.
 
-        disp_txt += "\n"
+        Returns:
+            str: Formatted question
+        """
+        display_text = f"{self.question_text}\n"
+        if self.desc:
+            display_text += f"{self.desc}\n"
+        display_text += "\n"
 
-        # print options
-        for i, j in enumerate(self.options):
-            option_str = j[1]
-            disp_txt += chr(65 + i)  # Ascii capital 'A'
-            disp_txt += ". "
-            disp_txt += option_str
-            disp_txt += "\n"
-        return disp_txt
+        for i, (_, option_text) in enumerate(self.options):
+            display_text += f"{chr(65 + i)}. {option_text}\n"
+
+        return display_text
 
 
 class Quiz:
-    def __init__(self, json_path):
-        questions = []
-        loaded_json = None
-        with open(json_path, "r") as tr:
-            json_content = tr.read()
-            loaded_json = json.loads(json_content)
+    def __init__(self, json_path: str):
+        """
+        Initialize the quiz with questions from a JSON file.
 
-        for i in loaded_json:
-            questions.append(Question(**i))
-        self._questions = questions
-        self._current_question_index = 0
-        self._chosen_options = []
+        Args:
+            json_path: Path to the JSON file containing the questions.
+        """
+        self._questions: List[Question] = self._load_questions(json_path)
+        self._current_question_index: int = 0
+        self._chosen_options: Dict[str, str] = {}
+        
+    def _load_questions(self, json_path: str) -> List[Question]:
+        """
+        Load questions from a JSON file.
 
-    def get_current_question(self):
+        Args:
+            json_path: Path to the JSON file containing the questions.
+        
+        Returns:
+            List: List of Question objects.
+        """
+        with open(json_path, 'r') as file:
+            loaded_json = json.load(file)
+        
+        result_item = [Question(**question) for question in loaded_json if question.get("id") == "result"][0]
+        self._prediction_mapping: Dict[str, str] = dict(result_item.options)
+        
+        return [Question(**question) for question in loaded_json if question.get("id") != "result"]
+    
+    def get_quiz_length(self):
+        return len(self._questions)
+    
+    def get_question_from_index(self, page):
+        if page >= 0 and page < len(self._questions):
+            return self._questions[page]
+        
+        return None
+
+    def get_current_question(self) -> Question:
+        """
+        Get the current question.
+
+        Returns:
+            Question: The current Question object.
+        """
         return self._questions[self._current_question_index]
 
-    def display_current_question(self):
-        current_question = self.get_current_question()
-        return current_question.display_question()
+    def display_current_question(self) -> str:
+        """
+        Get the formatted string of the current question.
 
-    def next_question(self):
+        Returns:
+            str: Formatted question string.
+        """
+        return self.get_current_question().display_question()
+
+    def next_question(self) -> bool:
+        """
+        Move to the next question if available.
+
+        Returns:
+            bool: True if there is a next question, False otherwise.
+        """
         if self._current_question_index < len(self._questions) - 1:
             self._current_question_index += 1
             return True
-        return False  # Indicates end of quiz
+        return False
 
     def start_quiz(self):
+        """
+        Start the quiz, displaying questions and collecting user answers.
+        """
         while True:
             print(self.display_current_question())
-            user_input = input("Your answer (type 'exit' to quit): ")
+            user_input = input("Your answer (type 'exit' to quit): ").strip().lower()
 
-            if user_input.lower() == "exit":
+            if user_input == 'exit':
                 print("Quiz ended.")
                 break
 
-            try:
-                option_index = ord(user_input.upper()) - 65
-                current_question = self.get_current_question()
-                if 0 <= option_index < len(current_question.options):
-                    self._chosen_options.append(current_question.options[option_index])
-                else:
-                    print("Invalid option. Please choose a valid option number.")
-                    continue
-            except ValueError:
-                print(
-                    "Invalid input. Please enter a valid letter corresponding to the options."
-                )
-                continue
+            if self._process_answer(user_input):
+                if not self.next_question():
+                    print("End of quiz!")
+                    break
 
-            if not self.next_question():
-                print("End of quiz!")
-                print("")
-                break
+        self._show_chosen_options()
 
+    def _process_answer(self, answer: str) -> bool:
+        """
+        Process the user's answer.
 
-quiz = Quiz(r".\Resources\raw\questions.json")
+        Args:
+            answer: The user's answer input.
 
-quiz.start_quiz()
+        Returns:
+            bool: True if the answer is valid, False otherwise.
+        """
+        if len(answer) != 1 or not answer.isalpha():
+            print("Invalid input. Please enter a valid letter corresponding to the options.")
+            return False
 
-print("Raw chosen options:")
-print(quiz._chosen_options)
+        option_index = ord(answer.upper()) - 65
+        current_question = self.get_current_question()
+
+        if 0 <= option_index < len(current_question.options):
+            self._chosen_options[current_question.id] = current_question.options[option_index][0]
+            return True
+        else:
+            print("Invalid option. Please choose a valid option letter.")
+            return False
+
+    def _show_chosen_options(self):
+        """
+        Displays the options chosen by the user.
+        """
+        print("Converted chosen options:")
+        print(self._chosen_options)
