@@ -1,14 +1,14 @@
-const questions = [
-  { question: "What is 2 + 2?", choices: ["3", "4", "5", "6"] },
-  { question: "Age group of the patient:", choices: ["Teenager (12-18 years old)", "Young Adult (19-40 years old)", "Middle Aged (41-65 years old)", "Old Aged (65 above)"] },
-  { question: "Sex of the patient:", choices: ["MALE", "FEMALE"] },
-  { question: "Drug used by the patient:", choices: ["D_PENICILLAMINE", "PLACEBO", "NOT_AVAILABLE"] },
-  { question: "What is the largest planet in our solar system?", choices: ["Earth", "Mars", "Jupiter", "Saturn"] },
-  { question: "What is the chemical symbol for water?", choices: ["H2O", "O2", "H2", "CO2"] },
-  { question: "Who wrote 'Hamlet'?", choices: ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"] },
-  // Add more questions here...
-  // Ensure you have a total of 15 questions
-];
+// const questions = [
+//   { question: "What is 2 + 2?", choices: ["3", "4", "5", "6"] },
+//   { question: "Age group of the patient:", choices: ["Teenager (12-18 years old)", "Young Adult (19-40 years old)", "Middle Aged (41-65 years old)", "Old Aged (65 above)"] },
+//   { question: "Sex of the patient:", choices: ["MALE", "FEMALE"] },
+//   { question: "Drug used by the patient:", choices: ["D_PENICILLAMINE", "PLACEBO", "NOT_AVAILABLE"] },
+//   { question: "What is the largest planet in our solar system?", choices: ["Earth", "Mars", "Jupiter", "Saturn"] },
+//   { question: "What is the chemical symbol for water?", choices: ["H2O", "O2", "H2", "CO2"] },
+//   { question: "Who wrote 'Hamlet'?", choices: ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"] },
+//   // Add more questions here...
+//   // Ensure you have a total of 15 questions
+// ];
 
 
 const totalQuestionsElement = document.getElementById('total-num-questions');
@@ -134,4 +134,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function startTest() {
   location.replace("Questionnaire1.html")
+}
+
+function showSlide(slideIndex) {
+  // Remove 'active' class from all carousel items
+  var carouselItems = document.querySelectorAll('.carousel-item');
+  carouselItems.forEach(function(item) {
+      item.classList.remove('active');
+  });
+  
+  // Add 'active' class to the selected carousel item
+  var selectedSlide = document.getElementById('slide' + (slideIndex + 1));
+  selectedSlide.classList.add('active');
 }
