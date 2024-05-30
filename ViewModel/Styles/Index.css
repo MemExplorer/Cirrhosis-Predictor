@@ -1,0 +1,116 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  position: relative;
+  padding-bottom: 1em;
+  /* Height of footer */
+  min-height: 100%;
+}
+
+.header {
+  background-color: #cff;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  background-color: #000;
+}
+
+/* Do not touch */
+.bg-body-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: #14967f !important;
+}
+
+/* Nav Bar */
+.cps-logo {
+  font-size: 36px;
+  font-family: Arial;
+  font-weight: bolder;
+  color: #e2fcd6;
+  padding-right: 1%;
+  text-decoration: none;
+}
+
+.nav-list-content {
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 20px;
+  position: relative;
+  cursor: pointer;
+  font-family: Arial;
+  font-weight: bolder;
+  color: #f1f9ff !important;
+}
+.nav-list-content :hover {
+  color: #c4c8cc !important;
+}
+
+/* Home page */
+.title-text {
+  font-size: 96px;
+  font-family: Arial;
+  font-weight: bolder;
+  color: #1C7378;
+  padding-top: 15%;
+}
+
+.button-start {
+  font-size: 36px;
+  font-family: Arial;
+  font-weight: bolder;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #FFC9B3;
+  color: #fff;
+}
+.button-start :hover {
+  background-color: #ffa585;
+  color: white;
+}
+
+/* Animation */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.text-animate {
+  animation: slideInLeft 0.75s ease-in-out;
+}
+
+.button-animate {
+  animation: slideInRight 0.75s ease-in-out;
+}
+
+.prediction-color-header {
+  color: #095d7e;
+}
+
+#question {
+  font-size: 30px;
+  margin-bottom: 20px;
+}/*# sourceMappingURL=Index.css.map */
