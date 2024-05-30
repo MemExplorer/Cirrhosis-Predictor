@@ -10,3 +10,17 @@ $Title-Color: #1C7378;
 @mixin hover-darken($color, $important: false) {
     color: invert($color, 20%) if($important, !important, null);
 }
+
+.button-cyan-custom {
+    font-size: 36px;
+    font-family: Arial;
+    font-weight: bolder;
+    width: fit-content;
+    background-color: #FFC9B3;
+    color: #fff;
+
+    :hover {
+        background-color: #ffa585;
+        color: white
+    }
+}

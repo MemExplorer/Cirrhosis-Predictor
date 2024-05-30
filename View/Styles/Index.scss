@@ -51,7 +51,7 @@ body {
     font-weight: bolder;
     color: $Zircon !important;
 
-    :hover {
+    &:hover {
         @include hover-darken($Zircon, true)
     }
 }
@@ -65,19 +65,7 @@ body {
     padding-top: 15%;
 }
 
-.button-start {
-    font-size: 36px;
-    font-family: Arial;
-    font-weight: bolder;
-    width: fit-content;
-    background-color: #FFC9B3;
-    color: #fff;
 
-    :hover {
-        background-color: #ffa585;
-        color: white
-    }
-}
 
 /* Performance Page */
 .performance-box {
@@ -153,7 +141,7 @@ body {
 }
 
 .prediction-color-header{
-    color: $Venice-Blue;
+    color: black;
 }
 
 #question {
