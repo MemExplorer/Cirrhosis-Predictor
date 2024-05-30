@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function startTest() {
-  location.replace("Questionnaire1.html")
+  location.replace("../View/Questionnaire.py")
 }
 
 function showSlide(slideIndex) {
