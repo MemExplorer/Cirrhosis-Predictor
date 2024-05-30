@@ -18,7 +18,7 @@ function UpdateProgressBar(id, p)
     var value = $(this).attr('data-value') ?? p;
     var left = $(this).find('.progress-left .progress-bar');
     var right = $(this).find('.progress-right .progress-bar');
-    var progValue = $(this).find('.progress-value .h2');
+    var progValue = $(this).find('.progress-value .h3');
     var childTxt = progValue[0].childNodes[0];
     childTxt.data = p;
     if (value >= 0) {

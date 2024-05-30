@@ -1,11 +1,12 @@
-.progress {
+#progbar1{
+  &.progress {
     width: 150px;
     height: 150px;
     background: none;
     position: relative;
   }
   
-  .progress::after {
+  &.progress::after {
     content: "";
     width: 100%;
     height: 100%;
@@ -16,7 +17,7 @@
     left: 0;
   }
   
-  .progress>span {
+  &.progress>span {
     width: 50%;
     height: 100%;
     overflow: hidden;
@@ -25,11 +26,11 @@
     z-index: 1;
   }
   
-  .progress .progress-left {
+  &.progress .progress-left {
     left: 0;
   }
   
-  .progress .progress-bar {
+  &.progress .progress-bar {
     width: 100%;
     height: 100%;
     background: none;
@@ -39,7 +40,7 @@
     top: 0;
   }
   
-  .progress .progress-left .progress-bar {
+  &.progress .progress-left .progress-bar {
     left: 100%;
     border-top-right-radius: 80px;
     border-bottom-right-radius: 80px;
@@ -48,11 +49,11 @@
     transform-origin: center left;
   }
   
-  .progress .progress-right {
+  &.progress .progress-right {
     right: 0;
   }
   
-  .progress .progress-right .progress-bar {
+  &.progress .progress-right .progress-bar {
     left: -100%;
     border-top-left-radius: 80px;
     border-bottom-left-radius: 80px;
@@ -61,8 +62,9 @@
     transform-origin: center right;
   }
   
-  .progress .progress-value {
+  &.progress .progress-value {
     position: absolute;
     top: 0;
     left: 0;
   }
+}

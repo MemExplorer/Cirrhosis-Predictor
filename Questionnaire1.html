@@ -7,10 +7,10 @@
     <link href="View/Styles/Questionnaire1.css" rel="stylesheet">
     <link href="View/Styles/Index.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d7d0e3dd38.js" crossorigin="anonymous"></script>
-    <script src="View/Scripts/DynamicScript.js"></script>
-    <script src="View/Scripts/ProgressBar.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    
     <link href="View/Styles/ProgressBar.scss" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -65,17 +65,31 @@
                 <div class="" id="resultDiv" >
                     <h1 class="prediction-color-header">Prediction Result</h1>
                     <div>
-                        <div class="progress mx-auto" id="progbar1">
-                            <span class="progress-left">
-                                <span class="progress-bar border-primary" style="border-color: #1C7378 !important;"></span>
-                            </span>
-                            <span class="progress-right">
-                                <span class="progress-bar border-primary" style="border-color: #1C7378 !important;"></span>
-                            </span>
-                            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                                <div class="h2 font-weight-bold">0<sup class="small">%</sup></div>
-                                <div class="h2 font-weight-bold" id="labelResult">Status</div>
+                        <div class="row mt-5">
+                            <div class="col-3">
+                                <div class="progress mx-auto" id="progbar1">
+                                    <span class="progress-left">
+                                        <span class="progress-bar border-primary" style="border-color: #1C7378 !important;"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar border-primary" style="border-color: #1C7378 !important;"></span>
+                                    </span>
+                                    <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="h3 font-weight-bold">0<sup class="small">%</sup></div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <div class="text-center mt-2">
+                                    <div class="h3 font-weight-bold" id="labelResult">Status</div>
+                                </div>
                             </div>
+                            <div class="col-9 text-wrap">
+                                <h4>After processing the input through the Naive Bayesian model of Cirrhosis Patient Survival, the following percentage is the result.</h5>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <button class="btn btn-lg button-start mx-auto" type="button" onclick="startTest()">TAKE ANOTHER TEST</button>
                         </div>
                     </div>
                 </div>
@@ -91,11 +105,16 @@
     </div>
     <!-- Check User Answers -->
     <div id="user-answers"></div>
-    <script src="DynamicScript.js"></script>
+    <script src="View/Scripts/ProgressBar.js"></script>
+    <script src="View/Scripts/DynamicScript.js"></script>
 </body>
 
-<footer class="footer text-center text-lg-start" style="background: #7adaba;">
+<footer class="footer text-center text-lg-start bg-body-tertiary">
     <!-- Footer Content -->
+    <div class="container-fluid">
+        <h5 class="snow-flurry-text-color fw-bold px-3 pt-3">Disclaimer:</h5>
+        <p class="snow-flurry-text-color p-3">The information provided by the Cirrhosis Patient Survival Prediction website (CPS) is for general informational purposes only. All information on the Website is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the Website.</p>
+    </div>
 </footer>
 
 </html>

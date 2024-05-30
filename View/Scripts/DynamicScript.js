@@ -11,8 +11,12 @@ const labelResultLbl = document.getElementById('labelResult');
 
 let currentQuestionIndex = 0;
 let userAnswers = {};
+//backBtn.style.visibility = 'hidden';
+
+resultDiv.style.display = 'none';
 backBtn.style.visibility = 'hidden';
-resultDiv.style.visibility = 'hidden';
+
+
 // Check User Answers
 const userAnswerElement = document.getElementById('choices');
 
@@ -26,6 +30,10 @@ function httpGetAsync(theUrl, callback) {
   xmlHttp.send(null);
 }
 
+
+let questionResp = null
+
+
 function showQuestion() {
 
   // Reset state before showing a new question
@@ -34,7 +42,7 @@ function showQuestion() {
   httpGetAsync("http://localhost/ViewModel/API.py?type=fetch&index=" + currentQuestionIndex, (resp) => {
     let jsonResp = JSON.parse(resp);
     if (jsonResp.success) {
-      let questionResp = jsonResp.data;
+      questionResp = jsonResp.data;
 
       totalQuestionsElement.textContent = "Question " + (currentQuestionIndex + 1) + "/" + questionResp.quiz_length;
       questionElement.textContent = questionResp.question_text;
@@ -51,7 +59,7 @@ function showQuestion() {
         choicesElement.appendChild(button);
 
       });
-      const progress = ((Object.keys(userAnswers).length) / questionResp.quiz_length) * 100;
+      const progress = (currentQuestionIndex / questionResp.quiz_length) * 100;
       progressBarElement.style.width = progress + "%";
     }
   });
@@ -87,7 +95,7 @@ function selectAnswer(qId, choice, qLen) {
     });
     quizElement.remove();
     progressDiv.style.visibility = 'hidden';
-    resultDiv.style.visibility = 'visible';
+    resultDiv.style.display = "inline";
     backBtn.style.visibility = 'hidden';
     console.log("end");
   }
@@ -96,7 +104,7 @@ function selectAnswer(qId, choice, qLen) {
   }
   currentQuestionIndex++;
   showQuestion();
-  console.log(currentQuestionIndex);
+  console.log(userAnswers);
 
 }
 
@@ -108,7 +116,14 @@ function previousQuestion() {
   if (currentQuestionIndex > 0) {
     currentQuestionIndex--;
   }
+  
+  if(currentQuestionIndex == 0){
+    backBtn.style.visibility = 'hidden';
+  }
 
+  const progress = (currentQuestionIndex / questionResp.quiz_length) * 100;
+      progressBarElement.style.width = progress + "%";
+  
   showQuestion();
 }
 

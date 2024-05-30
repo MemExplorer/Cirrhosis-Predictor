@@ -20,7 +20,6 @@ body {
 }
 
 .footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
     color: #fff;
@@ -158,7 +157,10 @@ body {
 }
 
 #question {
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 20px;
   }
 
+.snow-flurry-text-color{
+    color: $Snow-Flurry;
+}
