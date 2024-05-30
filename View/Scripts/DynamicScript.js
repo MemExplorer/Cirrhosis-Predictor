@@ -39,7 +39,7 @@ function showQuestion() {
   // Reset state before showing a new question
   resetState();
 
-  httpGetAsync("http://localhost/ViewModel/API.py?type=fetch&index=" + currentQuestionIndex, (resp) => {
+  httpGetAsync("http://localhost/View/API.py?type=fetch&index=" + currentQuestionIndex, (resp) => {
     let jsonResp = JSON.parse(resp);
     if (jsonResp.success) {
       questionResp = jsonResp.data;
@@ -85,7 +85,7 @@ function selectAnswer(qId, choice, qLen) {
     let payload = JSON.stringify(userAnswers);
     console.log(payload);
     let encodedPayload = btoa(payload).replaceAll("+", "-").replaceAll("/", "_");
-    httpGetAsync("http://localhost/ViewModel/API.py?type=result&response_data=" + encodedPayload, (resp) => {
+    httpGetAsync("http://localhost/View/API.py?type=result&response_data=" + encodedPayload, (resp) => {
       let jsonResp = JSON.parse(resp);
       if (jsonResp.success) {
         let prediction = jsonResp.data;
